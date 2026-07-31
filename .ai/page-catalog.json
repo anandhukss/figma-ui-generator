@@ -1,0 +1,11 @@
+{
+  "pages": [
+    { "name": "Dashboard", "route": "/", "sourcePath": "src/pages/dashboard-page.tsx", "layout": "AppLayout", "components": ["PageHeader", "BankingMetricCard", "AccountCard", "QuickActionCard", "TransactionTable", "Dialog"], "dataSource": "src/data/banking.ts", "purpose": "At-a-glance banking overview", "referenceUse": "Dashboard spacing, metrics, mixed card grids, and page composition" },
+    { "name": "Accounts", "route": "/accounts", "sourcePath": "src/pages/accounts-page.tsx", "layout": "AppLayout", "components": ["PageHeader", "AccountCard", "BankingMetricCard", "Card"], "dataSource": "src/data/banking.ts", "purpose": "Account balance and protection overview", "referenceUse": "Account card grids and informational panels" },
+    { "name": "Transactions", "route": "/transactions", "sourcePath": "src/pages/transactions-page.tsx", "layout": "AppLayout", "components": ["PageHeader", "Input", "Select", "TransactionTable", "EmptyState"], "dataSource": "src/data/banking.ts", "purpose": "Searchable and filterable banking activity", "referenceUse": "Data tables, filters, and empty states" },
+    { "name": "Payments", "route": "/payments", "sourcePath": "src/pages/payments-page.tsx", "layout": "AppLayout", "components": ["PageHeader", "Card", "StatusBadge", "Dialog", "Input", "Select"], "dataSource": "src/data/banking.ts", "purpose": "Recipient and scheduled-payment management", "referenceUse": "Payment workflows, recipient lists, and dialogs" },
+    { "name": "Cards", "route": "/cards", "sourcePath": "src/pages/cards-page.tsx", "layout": "AppLayout", "components": ["PageHeader", "StatusBadge", "Card", "Button"], "dataSource": null, "purpose": "Payment card details, security, and controls", "referenceUse": "High-emphasis cards, settings lists, and toggle states" },
+    { "name": "Design System", "route": "/design-system", "sourcePath": "src/pages/design-system-page.tsx", "layout": "AppLayout", "components": ["All catalog components"], "dataSource": "src/data/banking.ts", "purpose": "Development-only visual reference for tokens and components", "referenceUse": "Canonical component variants and semantic token visualization" }
+  ]
+}
+
