@@ -94,6 +94,7 @@ async function isFile(repositoryRoot: string, repositoryPath: string) {
 
 function allowedInspectionPath(repositoryPath: string, targetFile: string) {
   return (
+    repositoryPath === "src/main.tsx" ||
     repositoryPath === "src/index.css" ||
     repositoryPath === "src/App.tsx" ||
     repositoryPath === targetFile ||

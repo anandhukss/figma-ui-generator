@@ -18,6 +18,7 @@ async function fixture(t: TestContext) {
     mkdir(path.join(repositoryRoot, "src/pages"), { recursive: true }),
   ]);
   await Promise.all([
+    writeFile(path.join(repositoryRoot, "src/main.tsx"), "import './index.css'\n"),
     writeFile(path.join(repositoryRoot, "src/index.css"), ":root { --primary: #cb3cff; }\n"),
     writeFile(path.join(repositoryRoot, "src/components/ui/card.tsx"), "export const Card = () => null\n"),
     writeFile(path.join(repositoryRoot, "src/App.tsx"), "const route = '/sample'\n"),
@@ -30,7 +31,12 @@ test("accepts a scoped plan backed by real component files", async (t) => {
   const plan: UiImplementationPlan = {
     status: "planned",
     summary: "Create the requested page and register its route.",
-    inspectedFiles: ["src/index.css", "src/components/ui/card.tsx", "src/App.tsx"],
+    inspectedFiles: [
+      "src/main.tsx",
+      "src/index.css",
+      "src/components/ui/card.tsx",
+      "src/App.tsx",
+    ],
     componentsToReuse: [{ name: "Card", sourcePath: "src/components/ui/card.tsx" }],
     filesToCreate: ["src/pages/sample-page.tsx"],
     filesToModify: ["src/App.tsx"],

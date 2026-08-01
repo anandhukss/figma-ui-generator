@@ -7,12 +7,13 @@ These rules apply to Codex and other automated coding agents working in this rep
 1. Inspect the exact supplied design through the configured design MCP before planning code changes.
 2. Read source files directly. Do not create component catalogs, token catalogs, context JSON, intermediate HTML, screenshots, or blueprint files.
 3. Start repository inspection with:
+   - `src/main.tsx` only to identify the active application entrypoint and global stylesheet
    - `src/index.css`
    - `src/components/ui`
    - `src/components/shared`
    - `src/components/layout`
    - `src/styles`, `src/lib`, and `src/theme` when present
-4. Read `src/App.tsx` only when route registration is required.
+4. Read `src/App.tsx` only when route registration is required. Reading `src/main.tsx` does not authorize modifying it.
 5. Do not recursively traverse the repository or inspect unrelated feature modules and pages.
 
 ## Component reuse
