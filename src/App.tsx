@@ -4,6 +4,7 @@ import { AccountsPage } from './pages/accounts-page'
 import { CardsPage } from './pages/cards-page'
 import { DashboardPage } from './pages/dashboard-page'
 import { DesignSystemPage } from './pages/design-system-page'
+import { FigmaTestPage } from './pages/figma-test-page'
 import { PaymentsPage } from './pages/payments-page'
 import { TransactionsPage } from './pages/transactions-page'
 
@@ -20,6 +21,7 @@ export default function App() {
     '/payments': <PaymentsPage />,
     '/cards': <CardsPage />,
     '/design-system': <DesignSystemPage />,
+    '/figma-test': <FigmaTestPage />,
   }
   return <AppLayout currentPath={path} navigate={navigate}>{pages[path] ?? <DashboardPage navigate={navigate} />}</AppLayout>
 }

@@ -17,7 +17,7 @@ export function DashboardPage({ navigate }: { navigate: (path: string) => void }
   const [balanceVisible, setBalanceVisible] = useState(true)
   const [transferOpen, setTransferOpen] = useState(false)
   return <div className="space-y-6">
-    <PageHeader eyebrow="Friday, July 31" title="Good morning, Anand" description="Here’s what’s happening with your money today." actions={<Button variant="accent" onClick={() => setTransferOpen(true)}><Plus className="size-4" />Move money</Button>} />
+    <PageHeader eyebrow="Friday, July 31" title="Good morning, Anand" description="Here’s what’s happening with your money today." actions={<Button onClick={() => setTransferOpen(true)}><Plus className="size-4" />Move money</Button>} />
     <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
       <BankingMetricCard label="Total balance" value={balanceVisible ? formatCurrency(79875.04) : '••••••••'} change="3 accounts" icon={Wallet} />
       <BankingMetricCard label="Monthly income" value="$8,420.00" change="8.2%" trend="up" icon={TrendingUp} />

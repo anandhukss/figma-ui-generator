@@ -45,47 +45,65 @@
 }
 
 :root {
-  --background: #f7f8fa;
-  --foreground: #19221d;
-  --card: #ffffff;
-  --card-foreground: #19221d;
-  --popover: #ffffff;
-  --popover-foreground: #19221d;
-  --primary: #143e2b;
-  --primary-foreground: #ffffff;
-  --secondary: #e8f0eb;
-  --secondary-foreground: #143e2b;
-  --muted: #f0f2f1;
-  --muted-foreground: #69736d;
-  --accent: #d6f376;
-  --accent-foreground: #1f3219;
-  --success: #e1f5e9;
-  --success-foreground: #17663a;
-  --warning: #fff2d6;
-  --warning-foreground: #8a5a09;
-  --destructive: #fce5e6;
-  --destructive-foreground: #a12c35;
-  --info: #e5effc;
-  --info-foreground: #245a98;
-  --border: #e1e5e2;
-  --input: #d7deda;
-  --ring: #507d65;
-  --disabled: #c5cbc7;
-  --sidebar: #123524;
-  --sidebar-foreground: #f4f8f5;
-  --sidebar-muted: #aac0b2;
-  --sidebar-active: #d6f376;
-  --sidebar-active-foreground: #173420;
-  --credit: #178447;
-  --debit: #c23d48;
-  --pending: #a36a08;
-  --completed: #178447;
-  --failed: #c23d48;
+  --background: #080F25;
+  --foreground: #FFFFFF;
+
+  --card: #101935;
+  --card-foreground: #FFFFFF;
+
+  --popover: #101935;
+  --popover-foreground: #FFFFFF;
+
+  --primary: #CB3CFF;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #212C4D;
+  --secondary-foreground: #D9E1FA;
+
+  --muted: #212C4D;
+  --muted-foreground: #7E89AC;
+
+  --accent: #9A91FB;
+  --accent-foreground: #080F25;
+
+  --success: #0F6B4C;
+  --success-foreground: #8EF0C2;
+
+  --warning: #6A4A13;
+  --warning-foreground: #FDB52A;
+
+  --destructive: #6E2531;
+  --destructive-foreground: #FF9BA8;
+
+  --info: #173E66;
+  --info-foreground: #57C3FF;
+
+  --border: #37446B;
+  --input: #37446B;
+  --ring: #CB3CFF;
+
+  --disabled: #343B4F;
+
+  --sidebar: #101935;
+  --sidebar-foreground: #D9E1FA;
+  --sidebar-muted: #7E89AC;
+  --sidebar-active: #CB3CFF;
+  --sidebar-active-foreground: #FFFFFF;
+
+  --credit: #39D98A;
+  --debit: #FF7A8A;
+  --pending: #FDB52A;
+  --completed: #39D98A;
+  --failed: #FF7A8A;
+
   --radius: 0.75rem;
 }
 
 * { border-color: var(--border); }
-html { background: var(--background); }
+html {
+  background: var(--background);
+  color-scheme: dark;
+}
 body {
   margin: 0;
   min-width: 320px;
@@ -99,5 +117,4 @@ body {
 }
 button, input, select, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
-::selection { background: var(--accent); color: var(--accent-foreground); }
-
+::selection { background: var(--primary); color: var(--primary-foreground); }
