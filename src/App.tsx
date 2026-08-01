@@ -6,6 +6,7 @@ import { DashboardPage } from './pages/dashboard-page'
 import { DesignSystemPage } from './pages/design-system-page'
 import { FigmaTestPage } from './pages/figma-test-page'
 import { PaymentsPage } from './pages/payments-page'
+import { SampleDashboardPage } from './pages/sample-dashboard-page'
 import { TransactionsPage } from './pages/transactions-page'
 
 const normalizePath = () => window.location.pathname.replace(/\/$/, '') || '/'
@@ -20,8 +21,9 @@ export default function App() {
     '/transactions': <TransactionsPage />,
     '/payments': <PaymentsPage />,
     '/cards': <CardsPage />,
+    '/sample-dashboard': <SampleDashboardPage />,
     '/design-system': <DesignSystemPage />,
     '/figma-test': <FigmaTestPage />,
   }
-  return <AppLayout currentPath={path} navigate={navigate}>{pages[path] ?? <DashboardPage navigate={navigate} />}</AppLayout>
+  return <AppLayout currentPath={path === '/sample-dashboard' ? '/' : path} navigate={navigate}>{pages[path] ?? <DashboardPage navigate={navigate} />}</AppLayout>
 }

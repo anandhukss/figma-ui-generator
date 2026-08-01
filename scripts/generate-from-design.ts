@@ -197,10 +197,12 @@ async function gitStatus(repositoryRoot: string) {
     cwd: repositoryRoot,
     encoding: "utf8",
   });
-  return stdout.trim();
+  // Preserve the leading status column. `trim()` turns ` M src/App.tsx`
+  // into `M src/App.tsx`, causing the path parser to drop its first letter.
+  return stdout.trimEnd();
 }
 
-function changedPaths(status: string) {
+export function changedPaths(status: string) {
   if (!status) return [];
   return status
     .split("\n")

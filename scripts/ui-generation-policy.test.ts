@@ -9,6 +9,7 @@ import {
   validateImplementationPlan,
   type UiImplementationPlan,
 } from "./ui-generation-policy.js";
+import { changedPaths } from "./generate-from-design.js";
 
 async function fixture(t: TestContext) {
   const repositoryRoot = await mkdtemp(path.join(tmpdir(), "ui-generation-policy-"));
@@ -50,6 +51,13 @@ test("accepts a scoped plan backed by real component files", async (t) => {
     routeFile: "src/App.tsx",
   });
   assert.deepEqual(errors, []);
+});
+
+test("preserves the first character of unstaged Git paths", () => {
+  assert.deepEqual(changedPaths(" M src/App.tsx\n?? src/pages/sample-page.tsx"), [
+    "src/App.tsx",
+    "src/pages/sample-page.tsx",
+  ]);
 });
 
 test("rejects hardcoded colours and recreated primitives", async (t) => {

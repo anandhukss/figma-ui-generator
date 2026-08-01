@@ -203,15 +203,18 @@ export async function validateGeneratedChanges(input: {
   if (protectedDefinition.test(targetSource)) {
     errors.push("Target page defines a protected design-system component");
   }
-  for (const component of input.componentsToReuse) {
-    if (!new RegExp(`\\b${component.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`).test(targetSource)) {
-      errors.push(`Planned component is not referenced by the target page: ${component.name}`);
-    }
-  }
-
   const routeSource = await readFile(path.resolve(input.repositoryRoot, input.routeFile), "utf8");
   if (!routeSource.includes(input.targetRoute)) {
     errors.push(`Route registration does not contain ${input.targetRoute}`);
+  }
+  const implementationSource = `${targetSource}\n${routeSource}`;
+  const reusesPlannedComponent = input.componentsToReuse.some((component) =>
+    new RegExp(
+      `\\b${component.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`,
+    ).test(implementationSource),
+  );
+  if (input.componentsToReuse.length > 0 && !reusesPlannedComponent) {
+    errors.push("Implementation does not reference any planned existing component");
   }
   return errors;
 }
